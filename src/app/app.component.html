@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>Book Shelf</h1>
+      <div class="row">
+        <div *ngFor="let product of products" class="col-lg-4">
+          <app-cards [product]="product" (addProduct)="insertProduct($event)"></app-cards>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <h1>Books Added</h1>
+      <ol class="list-group list-group-numbered">
+        <app-card-item *ngFor="let item of cartItem" [item]="item"
+          (removeFromCart)="removeItem($event)"></app-card-item>
+      </ol>
+      <h2 style="color:blue;">Total: ₹ {{total}}</h2>
+    </div>
+  </div>
+</div>
